@@ -28,7 +28,7 @@ class StoryTableViewCell: UITableViewCell {
     /// Reset the cell to empty labels
     private func resetCell() {
         titleLabel.text = ""
-        thumbnailImageView.image = UIImage(systemName: "folder.fill")
+        thumbnailImageView.image = UIImage(named: "placeHolderImage")
     }
     
     func configureCell() {
@@ -62,8 +62,9 @@ class StoryTableViewCell: UITableViewCell {
 extension StoryTableViewCell {
     func bindViewModel() {
         viewModel.thumbnailImage.bind { [weak self] image in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                self?.thumbnailImageView.image = image
+                self.thumbnailImageView.image = image
             }
         }
     }

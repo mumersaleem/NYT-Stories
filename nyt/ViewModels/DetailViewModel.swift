@@ -11,8 +11,8 @@ import UIKit
 class DetailViewModel {
     
     /// Bindable objects for thumbnail and main Image
-    var thumbnailImage: Observable<UIImage?> = Observable(UIImage(systemName: "folder.fill"))
-    var mainImage: Observable<UIImage?> = Observable(UIImage(systemName: "folder.fill"))
+//    var thumbnailImage: Observable<UIImage?> = Observable(UIImage(named: "placeHolderImage"))
+    var mainImage: Observable<UIImage?> = Observable(UIImage(named: "placeHolderImage"))
 
     var story: Story? {
         didSet {
@@ -37,11 +37,11 @@ extension DetailViewModel {
     private func setMediaImages() {
         /// Getting thumbnail image from multimedia
         guard let multimediaArray = story?.multimedia else { return }
-        let thumbnailMedia = multimediaArray.filter { $0.format == MultimediaImageTypes.largeThumbnail }.first
-        guard let thumbnailImageURL = thumbnailMedia?.url else { return }
-        self.getImage(from: thumbnailImageURL) { [weak self] image in
-            self?.thumbnailImage.value = image
-        }
+//        let thumbnailMedia = multimediaArray.filter { $0.format == MultimediaImageTypes.largeThumbnail }.first
+//        guard let thumbnailImageURL = thumbnailMedia?.url else { return }
+//        self.getImage(from: thumbnailImageURL) { [weak self] image in
+//            self?.thumbnailImage.value = image
+//        }
         
         /// Getting main image from multimedia
         let mainMedia = multimediaArray.filter { $0.format == MultimediaImageTypes.superJumbo }.first
@@ -59,9 +59,8 @@ extension DetailViewModel {
         }
     }
     
-    func openStory() {
-        if let url = URL(string: (story?.url)!) {
-            UIApplication.shared.open(url)
-        }
+    @objc func openStory() {
+        guard let urlString = story?.url, let url = URL(string: urlString) else { return }
+        UIApplication.shared.open(url)
     }
 }

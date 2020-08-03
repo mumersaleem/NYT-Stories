@@ -29,8 +29,7 @@ class StoriesViewController: UIViewController {
     
 }
 
-// MARK: - Table view data source
-
+// MARK: - Table view delegate and data source
 extension StoriesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows
@@ -65,21 +64,25 @@ extension StoriesViewController: AlertPresentable {
     func bindViewModel() {
         viewModel.storyType = storyType
         viewModel.isLoading.bind { [weak self] _ in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                (self?.viewModel.isLoading.value)! ? self?.activityIndicator.startAnimating() : self?.activityIndicator.stopAnimating()
+                self.viewModel.isLoading.value ? self.activityIndicator.startAnimating() : self.activityIndicator.stopAnimating()
             }
         }
         
         viewModel.stories.bind { [weak self] _ in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                self.tableView.reloadData()
             }
         }
         
         viewModel.errorStr.bind { [weak self] _ in
-            if let errorStr = self?.viewModel.errorStr.value, !errorStr.isEmpty {
+            guard let self = self else { return }
+        
+            if !self.viewModel.errorStr.value.isEmpty {
                 DispatchQueue.main.async {
-                    self?.presentAlert(title: "Error", message: errorStr, completion: nil)
+                    self.presentAlert(title: "Error", message: self.viewModel.errorStr.value, completion: nil)
                 }
             }
         }

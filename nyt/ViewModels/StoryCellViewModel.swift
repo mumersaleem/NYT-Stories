@@ -11,7 +11,7 @@ import UIKit
 
 class StoryCellViewModel {
     
-    var thumbnailImage: Observable<UIImage?> = Observable(UIImage(systemName: "folder.fill"))
+    var thumbnailImage: Observable<UIImage?> = Observable(UIImage(named: "placeHolderImage"))
     
     var story: Story? {
         didSet {
@@ -35,8 +35,9 @@ class StoryCellViewModel {
     
     func getImage(from url: String) {
         NetworkManager().getImageDataFromURL(from: url) { [weak self] data in
+            guard let self = self else { return }
             if let data = data {
-                self?.thumbnailImage.value = UIImage(data: data)
+                self.thumbnailImage.value = UIImage(data: data)
             }
         }
     }

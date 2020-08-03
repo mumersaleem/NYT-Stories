@@ -30,12 +30,12 @@ struct NetworkManager {
     private let router = Router<StoryAPI>()
     
     /// Get top stories based on the type of Story
-    func getTopStories(type: StoryAPI, completion: @escaping (_ stories: [Story]?, _ error: String?) -> () ) {
+    func getTopStories(type: StoryAPI, completion: @escaping (_ stories: [Story]?, _ error: NetworkResponse?) -> () ) {
         
         router.request(type) { (data, response, error) in
             
             if error != nil {
-                return completion(nil, "network connection failed")
+                return completion(nil, .failed)
             }            
             
             guard let response = response as? HTTPURLResponse else { return print("url response error")}
@@ -46,7 +46,7 @@ struct NetworkManager {
             case.success:
                 
                 guard let data = data else {
-                    completion(nil, NetworkResponse.noData.rawValue)
+                    completion(nil, .noData)
                     return
                 }
                 do {
@@ -56,19 +56,19 @@ struct NetworkManager {
                     
                 } catch {
                     print(error)
-                    completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    completion(nil, .unableToDecode)
                 }
-            case .failure(let networkFailureError): completion(nil, networkFailureError)
+            case .failure: completion(nil, .failed)
             }
         }
     }
     
-    func getOfflineStories(from file: String, completion: @escaping(_ stories: [Story]?, _ error: String?) -> ()) {
+    func getOfflineStories(from file: String, completion: @escaping(_ stories: [Story]?, _ error: NetworkResponse?) -> ()) {
         do {
             let response: APIResponse = try Bundle.main.jsonFileDecoder(APIResponse.self, from: file)
             completion(response.results, nil)
         } catch {
-            completion(nil, error.localizedDescription)
+            completion(nil, .failed)
         }
     }
     
