@@ -11,6 +11,7 @@ import UIKit
 
 class StoryCellViewModel {
     
+    /// Bindable objects for thumbnail image
     var thumbnailImage: Observable<UIImage?> = Observable(UIImage(named: "placeHolderImage"))
     
     var story: Story? {
@@ -22,19 +23,21 @@ class StoryCellViewModel {
         }
     }
     
-    
+    /// Title of the story
     var title: String {
         guard let title = story?.title else { return "" }
         return title
     }
     
-    var abstract: String {
-        guard let abstract = story?.abstract else { return "" }
-        return abstract
-    }
+    /// Abstract of the story, This property can be used to show the abstract of the story.
+//    var abstract: String {
+//        guard let abstract = story?.abstract else { return "" }
+//        return abstract
+//    }
     
+    /// Getting image from string url using Network Manager
     func getImage(from url: String) {
-        NetworkManager().getImageDataFromURL(from: url) { [weak self] data in
+        NetworkManager.shared.getImageDataFromURL(from: url) { [weak self] data in
             guard let self = self else { return }
             if let data = data {
                 self.thumbnailImage.value = UIImage(data: data)

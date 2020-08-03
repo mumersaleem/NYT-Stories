@@ -25,9 +25,13 @@ enum Result<String> {
 
 struct NetworkManager {
     
+    static var shared = NetworkManager()
+
     static let environment: NetworkEnvironment = .production
     static let NYTAPIKey = NYTApiKey.apiKey
     private let router = Router<StoryAPI>()
+    
+    private init() { }
     
     /// Get top stories based on the type of Story
     func getTopStories(type: StoryAPI, completion: @escaping (_ stories: [Story]?, _ error: NetworkResponse?) -> () ) {
@@ -63,6 +67,7 @@ struct NetworkManager {
         }
     }
     
+    /// Getting offline stories from json bundle
     func getOfflineStories(from file: String, completion: @escaping(_ stories: [Story]?, _ error: NetworkResponse?) -> ()) {
         do {
             let response: APIResponse = try Bundle.main.jsonFileDecoder(APIResponse.self, from: file)
@@ -72,6 +77,7 @@ struct NetworkManager {
         }
     }
     
+    /// Getting image data from URL
     func getImageDataFromURL(from url: String, completion: @escaping(Data?) -> ()) {
         guard let url = URL(string: url) else { return completion(nil) }
         
@@ -81,6 +87,7 @@ struct NetworkManager {
         }.resume()
     }
     
+    /// Private function to handle network response
     private func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
         switch response.statusCode {
         case 200...299: return .success

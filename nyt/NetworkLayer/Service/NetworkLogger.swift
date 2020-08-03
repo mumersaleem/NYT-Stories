@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Network logger can be used to log the output of request in a better format.
 class NetworkLogger {
     static func log(request: URLRequest) {
         

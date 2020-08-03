@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Extending Bundle class to decode the json file using JSON Decoder.
 extension Bundle {
     func jsonFileDecoder<T: Decodable>(_ T: T.Type, from file: String) throws -> T {
 

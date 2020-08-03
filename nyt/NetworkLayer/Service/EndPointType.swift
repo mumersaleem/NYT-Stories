@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// EndPointType protocol consists of every element requried to make a successfull network call.
 protocol EndPointType {
     var baseURL: URL { get }
     var path: String { get }

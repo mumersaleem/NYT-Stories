@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Extending UITabBarItem to accept TabBarContoller Type enum
 extension UITabBarItem {
     convenience init(tabBarItem: TabBarController) {
         self.init(title: tabBarItem.tabBarItemTitle, image: tabBarItem.tabBarItemImage, selectedImage: tabBarItem.tabBarItemSelectedImage)

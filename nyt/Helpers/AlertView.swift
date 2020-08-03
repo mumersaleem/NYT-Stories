@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Generic AlertController protocol can be used to show alerts through out the application
 protocol AlertPresentable {
     func presentAlert(title: String, message: String, completion: (() -> ())?)
 }

@@ -11,7 +11,6 @@ import UIKit
 class DetailViewModel {
     
     /// Bindable objects for thumbnail and main Image
-//    var thumbnailImage: Observable<UIImage?> = Observable(UIImage(named: "placeHolderImage"))
     var mainImage: Observable<UIImage?> = Observable(UIImage(named: "placeHolderImage"))
 
     var story: Story? {
@@ -37,11 +36,6 @@ extension DetailViewModel {
     private func setMediaImages() {
         /// Getting thumbnail image from multimedia
         guard let multimediaArray = story?.multimedia else { return }
-//        let thumbnailMedia = multimediaArray.filter { $0.format == MultimediaImageTypes.largeThumbnail }.first
-//        guard let thumbnailImageURL = thumbnailMedia?.url else { return }
-//        self.getImage(from: thumbnailImageURL) { [weak self] image in
-//            self?.thumbnailImage.value = image
-//        }
         
         /// Getting main image from multimedia
         let mainMedia = multimediaArray.filter { $0.format == MultimediaImageTypes.superJumbo }.first
@@ -51,16 +45,12 @@ extension DetailViewModel {
         }
     }
     
+    /// Getting image from url provided in multimedia object
     private func getImage(from url: String, completion: @escaping (UIImage?) -> ()) {
-        NetworkManager().getImageDataFromURL(from: url) { data in
+        NetworkManager.shared.getImageDataFromURL(from: url) { data in
             if let data = data {
                 completion(UIImage(data: data))
             }
         }
-    }
-    
-    @objc func openStory() {
-        guard let urlString = story?.url, let url = URL(string: urlString) else { return }
-        UIApplication.shared.open(url)
     }
 }

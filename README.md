@@ -30,7 +30,7 @@ Project structure is divided into certain groups to make the code structure bett
 - This module has single file which tests the tab bar buttons on main screen.
 
 # Development Environment
-- This is built with Xcode 11.6. Tested with iPhone 11 on iOS 13.6
+- This is built with Xcode 11.6. Tested with iPhone 11 on iOS 13.6. It supports all orientations.
 
 # Author
 -  *Umer Saleem*

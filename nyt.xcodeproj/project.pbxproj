@@ -40,6 +40,7 @@
 		4B4EAB9424D4599200FB4D24 /* UITabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EAB9324D4599200FB4D24 /* UITabBarItem.swift */; };
 		4B4EAB9624D4605700FB4D24 /* TabBarControllerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EAB9524D4605700FB4D24 /* TabBarControllerDetails.swift */; };
 		4B4EAB9A24D4C80200FB4D24 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EAB9924D4C80200FB4D24 /* DetailViewController.swift */; };
+		4B54540524D864150050A916 /* MyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54540424D864150050A916 /* MyWebView.swift */; };
 		4B60742C24D50B920066CC79 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60742B24D50B920066CC79 /* DetailViewModel.swift */; };
 		4B60742F24D6FEEB0066CC79 /* StoriesViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60742E24D6FEEB0066CC79 /* StoriesViewModelTest.swift */; };
 		4B60743124D703EA0066CC79 /* StoryCellViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60743024D703EA0066CC79 /* StoryCellViewModelTest.swift */; };
@@ -104,6 +105,7 @@
 		4B4EAB9324D4599200FB4D24 /* UITabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarItem.swift; sourceTree = "<group>"; };
 		4B4EAB9524D4605700FB4D24 /* TabBarControllerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerDetails.swift; sourceTree = "<group>"; };
 		4B4EAB9924D4C80200FB4D24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4B54540424D864150050A916 /* MyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebView.swift; sourceTree = "<group>"; };
 		4B60742B24D50B920066CC79 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4B60742E24D6FEEB0066CC79 /* StoriesViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewModelTest.swift; sourceTree = "<group>"; };
 		4B60743024D703EA0066CC79 /* StoryCellViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCellViewModelTest.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				4B20E04F24D0398800F4A340 /* StoriesViewController.swift */,
 				4B4923E924D1D07E00B32618 /* StoryTableViewCell.swift */,
 				4B4EAB9924D4C80200FB4D24 /* DetailViewController.swift */,
+				4B54540424D864150050A916 /* MyWebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				4B4923F224D1FD8B00B32618 /* EndPointType.swift in Sources */,
 				4B20E05424D03CB800F4A340 /* AppConstants.swift in Sources */,
 				4B20E01E24D037D100F4A340 /* AppDelegate.swift in Sources */,
+				4B54540524D864150050A916 /* MyWebView.swift in Sources */,
 				4B0E793C24D054030095DF5D /* HTTPMethod.swift in Sources */,
 				4B4923EC24D1D10D00B32618 /* Response.swift in Sources */,
 				4B4EAB9624D4605700FB4D24 /* TabBarControllerDetails.swift in Sources */,

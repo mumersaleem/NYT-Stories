@@ -10,10 +10,12 @@ import Foundation
 
 typealias Parameters = [String: Any]
 
+/// This protocol is used for encoding dictionary paramters
 protocol ParameterEncoder {
     static func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws
 }
 
+/// This protocol can be used to encode encodable models
 protocol EncodableParamters {
     static func encode<T: Encodable>(urlRequest: inout URLRequest, with parameters: T) throws
 }

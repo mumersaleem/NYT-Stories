@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Obserable class with Generic parameter used for binding data
 class Observable<T> {
 
     var value: T {

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Network Environment enum to set the project environment.
 enum NetworkEnvironment {
     case development
     case staging
