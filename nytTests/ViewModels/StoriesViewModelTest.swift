@@ -24,7 +24,7 @@ class StoriesViewModelTest: XCTestCase {
     
     func testHomeStories() {
         let storiesPromise = expectation(description: "Stories retrived successfully")
-        NetworkManager().getTopStories(type: .home) { [weak self] (stories, error) in
+        NetworkManager.shared.getTopStories(type: .home) { [weak self] (stories, error) in
             guard let self = self else { return }
             if let stories = stories {
                 self.viewModel.stories.value = stories
@@ -36,7 +36,7 @@ class StoriesViewModelTest: XCTestCase {
     
     func testOfflineStories() {
         let storiesPromise = expectation(description: "Stories retrived successfully")
-        NetworkManager().getOfflineStories(from: "offline") { [weak self] (stories, error) in
+        NetworkManager.shared.getOfflineStories(from: "offline") { [weak self] (stories, error) in
 
             guard let self = self else { return }
             if let stories = stories {

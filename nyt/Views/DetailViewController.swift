@@ -11,15 +11,23 @@ import WebKit
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet weak var webView: MyWebView!
     lazy var viewModel = DetailViewModel()
-    
 
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
-    @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var stackView: UIStackView!
+    
+    /// Update labels alignment based on orientation
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if UIDevice.current.orientation.isLandscape {
+            titleLabel.textAlignment = .center
+            captionLabel.textAlignment = .center
+        } else {
+            titleLabel.textAlignment = .left
+            captionLabel.textAlignment = .left
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +40,9 @@ class DetailViewController: UIViewController {
 extension DetailViewController {
     func bindViewModel() {
         
+        titleLabel.textColor = .label
         titleLabel.text = viewModel.title
+        captionLabel.textColor = .secondaryLabel
         captionLabel.text = viewModel.caption
         
         self.viewModel.mainImage.bind { [weak self ] image in
@@ -43,48 +53,11 @@ extension DetailViewController {
         }
     }
 }
-
-//MARK:- Loading WKWebView to show the story in application
-extension DetailViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Started to load")
-        navigationItem.rightBarButtonItem?.isEnabled = false
-    }
-
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("Finished loading")
-        navigationItem.rightBarButtonItem?.isEnabled = true
-    }
-
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        navigationItem.rightBarButtonItem?.isEnabled = true
-        print(error.localizedDescription)
-    }
-}
-
-//MARK:- Webview handling to show the story inside webview.
+//MARK:- Navigate to webView
 extension DetailViewController {
     @objc private func handleWebView() {
-        if webView.isHidden {
-            webView.isHidden = false
-            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "multiply.circle.fill")
-            guard let urlString = viewModel.story?.url, let url = URL(string: urlString) else { return }
-            let urlRequest = URLRequest(url: url)
-            
-            webView.allowsBackForwardNavigationGestures = true
-            webView.navigationDelegate = self
-            webView.load(urlRequest)
-        } else {
-            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "info.circle.fill")
-            webView.isHidden = true
-        }
-    }
-}
-
-//MARK:- Orientation handling for webview
-extension DetailViewController {
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        
-        webView.frame = self.view.frame
+        let webViewVC = WebViewController()
+        webViewVC.viewModel.urlString = viewModel.story?.url
+        show(webViewVC, sender: nil)
     }
 }

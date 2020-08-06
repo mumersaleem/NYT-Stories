@@ -29,7 +29,7 @@ class StoryCellViewModel {
         return title
     }
     
-    /// Abstract of the story, This property can be used to show the abstract of the story.
+    /// Abstract of the story, this property can be used to show the abstract of the story.
 //    var abstract: String {
 //        guard let abstract = story?.abstract else { return "" }
 //        return abstract

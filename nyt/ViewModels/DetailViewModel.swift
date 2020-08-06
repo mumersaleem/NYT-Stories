@@ -12,7 +12,8 @@ class DetailViewModel {
     
     /// Bindable objects for thumbnail and main Image
     var mainImage: Observable<UIImage?> = Observable(UIImage(named: "placeHolderImage"))
-
+    var isWebViewHidden = true
+    
     var story: Story? {
         didSet {
             setMediaImages()

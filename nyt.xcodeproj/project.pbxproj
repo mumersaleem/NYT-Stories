@@ -40,12 +40,14 @@
 		4B4EAB9424D4599200FB4D24 /* UITabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EAB9324D4599200FB4D24 /* UITabBarItem.swift */; };
 		4B4EAB9624D4605700FB4D24 /* TabBarControllerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EAB9524D4605700FB4D24 /* TabBarControllerDetails.swift */; };
 		4B4EAB9A24D4C80200FB4D24 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4EAB9924D4C80200FB4D24 /* DetailViewController.swift */; };
-		4B54540524D864150050A916 /* MyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54540424D864150050A916 /* MyWebView.swift */; };
+		4B54540524D864150050A916 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54540424D864150050A916 /* WebViewController.swift */; };
+		4B54540724D9A88A0050A916 /* WebViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54540624D9A88A0050A916 /* WebViewViewModel.swift */; };
 		4B60742C24D50B920066CC79 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60742B24D50B920066CC79 /* DetailViewModel.swift */; };
 		4B60742F24D6FEEB0066CC79 /* StoriesViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60742E24D6FEEB0066CC79 /* StoriesViewModelTest.swift */; };
 		4B60743124D703EA0066CC79 /* StoryCellViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60743024D703EA0066CC79 /* StoryCellViewModelTest.swift */; };
 		4B60743324D71EB80066CC79 /* DetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B60743224D71EB80066CC79 /* DetailViewModelTest.swift */; };
 		4B60743524D739FD0066CC79 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4B60743424D739FD0066CC79 /* README.md */; };
+		4B72ED8F24DA1F6C00974010 /* WebViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72ED8E24DA1F6C00974010 /* WebViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,12 +107,14 @@
 		4B4EAB9324D4599200FB4D24 /* UITabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarItem.swift; sourceTree = "<group>"; };
 		4B4EAB9524D4605700FB4D24 /* TabBarControllerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerDetails.swift; sourceTree = "<group>"; };
 		4B4EAB9924D4C80200FB4D24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		4B54540424D864150050A916 /* MyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWebView.swift; sourceTree = "<group>"; };
+		4B54540424D864150050A916 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		4B54540624D9A88A0050A916 /* WebViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewModel.swift; sourceTree = "<group>"; };
 		4B60742B24D50B920066CC79 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4B60742E24D6FEEB0066CC79 /* StoriesViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewModelTest.swift; sourceTree = "<group>"; };
 		4B60743024D703EA0066CC79 /* StoryCellViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCellViewModelTest.swift; sourceTree = "<group>"; };
 		4B60743224D71EB80066CC79 /* DetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTest.swift; sourceTree = "<group>"; };
 		4B60743424D739FD0066CC79 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4B72ED8E24DA1F6C00974010 /* WebViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +224,7 @@
 				4B20E05B24D03DC800F4A340 /* StoriesViewModel.swift */,
 				4B4923E724D1D02800B32618 /* StoryCellViewModel.swift */,
 				4B60742B24D50B920066CC79 /* DetailViewModel.swift */,
+				4B54540624D9A88A0050A916 /* WebViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -231,7 +236,7 @@
 				4B20E04F24D0398800F4A340 /* StoriesViewController.swift */,
 				4B4923E924D1D07E00B32618 /* StoryTableViewCell.swift */,
 				4B4EAB9924D4C80200FB4D24 /* DetailViewController.swift */,
-				4B54540424D864150050A916 /* MyWebView.swift */,
+				4B54540424D864150050A916 /* WebViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				4B60742E24D6FEEB0066CC79 /* StoriesViewModelTest.swift */,
 				4B60743024D703EA0066CC79 /* StoryCellViewModelTest.swift */,
 				4B60743224D71EB80066CC79 /* DetailViewModelTest.swift */,
+				4B72ED8E24DA1F6C00974010 /* WebViewModelTest.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -465,12 +471,13 @@
 				4B4923F224D1FD8B00B32618 /* EndPointType.swift in Sources */,
 				4B20E05424D03CB800F4A340 /* AppConstants.swift in Sources */,
 				4B20E01E24D037D100F4A340 /* AppDelegate.swift in Sources */,
-				4B54540524D864150050A916 /* MyWebView.swift in Sources */,
+				4B54540524D864150050A916 /* WebViewController.swift in Sources */,
 				4B0E793C24D054030095DF5D /* HTTPMethod.swift in Sources */,
 				4B4923EC24D1D10D00B32618 /* Response.swift in Sources */,
 				4B4EAB9624D4605700FB4D24 /* TabBarControllerDetails.swift in Sources */,
 				4B20E05024D0398800F4A340 /* StoriesViewController.swift in Sources */,
 				4B4923FB24D2028600B32618 /* URLParameterEncoding.swift in Sources */,
+				4B54540724D9A88A0050A916 /* WebViewViewModel.swift in Sources */,
 				4B20E06124D03EA600F4A340 /* Observable.swift in Sources */,
 				4B49240724D21F1800B32618 /* NetworkManager.swift in Sources */,
 				4B49240E24D3A41700B32618 /* Bundle+decode.swift in Sources */,
@@ -498,6 +505,7 @@
 				4B60743124D703EA0066CC79 /* StoryCellViewModelTest.swift in Sources */,
 				4B60743324D71EB80066CC79 /* DetailViewModelTest.swift in Sources */,
 				4B60742F24D6FEEB0066CC79 /* StoriesViewModelTest.swift in Sources */,
+				4B72ED8F24DA1F6C00974010 /* WebViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,7 +680,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tintash.nyt;
 				PRODUCT_NAME = NYT;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -690,7 +698,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tintash.nyt;
 				PRODUCT_NAME = NYT;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

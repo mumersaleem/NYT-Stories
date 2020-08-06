@@ -32,13 +32,13 @@ class StoryTableViewCell: UITableViewCell {
     }
     
     func configureCell() {
-        
         /// cell view layer changes for better UI
+        cellView.backgroundColor = .systemBackground
         cellView.layer.cornerRadius = 20
         cellView.layer.borderWidth = 1
         cellView.layer.borderColor = UIColor.lightGray.cgColor
         cellView.layer.shadowRadius = 4
-        cellView.layer.shadowColor = UIColor.gray.cgColor
+        cellView.layer.shadowColor = UIColor.darkGray.cgColor
         cellView.layer.shadowOpacity = 0.5
         cellView.layer.shadowOffset = .zero
         
@@ -50,8 +50,8 @@ class StoryTableViewCell: UITableViewCell {
         thumbnailImageView.layer.shadowOpacity = 0.5
         thumbnailImageView.layer.shadowOffset = .zero
         
-        
         /// Setting labels texts
+//        titleLabel.textColor = .black
         titleLabel.text = viewModel.title
 
         /// Binding ViewModel

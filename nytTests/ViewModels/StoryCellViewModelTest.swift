@@ -15,28 +15,25 @@ class StoryCellViewModelTest: XCTestCase {
     
     override func setUp() {
         viewModel = StoryCellViewModel()
+        getOfflineStories()
     }
     
     override func tearDown() {
         viewModel = nil
     }
     
-    func testGetOfflineStories() {
-        let storiesPromise = expectation(description: "Stories retrived successfully")
-        NetworkManager().getOfflineStories(from: "offline") { [weak self] (stories, error) in
+    func getOfflineStories() {
+        NetworkManager.shared.getOfflineStories(from: "offline") { [weak self] (stories, error) in
             guard let self = self else { return }
             if let stories = stories {
                 self.viewModel.story = stories.first
-                storiesPromise.fulfill()
             }
         }
-        wait(for: [storiesPromise], timeout: 5)
     }
     
-//    func testObjectsForView() {
-//        XCTAssertEqual(viewModel.story?.title, "title")
-//        XCTAssertEqual(viewModel.abstract, "abstract")
-//    }
+    func testObjectsForViews() {
+        XCTAssertEqual(viewModel.title, viewModel.story?.title)
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

@@ -5,6 +5,7 @@
 ## Notes
 - Offline.json file is included in the project which contains the same data as top stories home page from NYT. This file is used in loading offline data in Offline tab.
 - I have not included thumbnail in the detail page of the application as all the images in the multimedia are same with different dimensions. So it doesn't make any sense to include thumbnail image in the detail screen when there is already a full image. I have also included caption in the detail page which shows caption of the photo. It was not required in the requirement document but i have added it just to make UI a bit better. Caption is not available for every multimedia object so application will only show the caption for the image which is available.
+- UI adjustment for dark mode is also added.
 
 # Technical Details
 ## App Architecture
